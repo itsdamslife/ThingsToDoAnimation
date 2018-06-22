@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		95597B0920DD2E04002B317E /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A81BEE20C4E1AA0090D691 /* CheckBox.swift */; };
 		957DF91620C4D2690064704E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957DF91520C4D2690064704E /* AppDelegate.swift */; };
 		957DF91B20C4D2690064704E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 957DF91920C4D2690064704E /* Main.storyboard */; };
 		957DF91D20C4D26C0064704E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 957DF91C20C4D26C0064704E /* Assets.xcassets */; };
@@ -140,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95597B0920DD2E04002B317E /* CheckBox.swift in Sources */,
 				957DF92820C4D3800064704E /* TaskCell.swift in Sources */,
 				957DF91620C4D2690064704E /* AppDelegate.swift in Sources */,
 				957DF92A20C4D3990064704E /* TaskViewController.swift in Sources */,
