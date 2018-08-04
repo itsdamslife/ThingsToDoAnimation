@@ -22,10 +22,19 @@ class CheckBox: UIButton {
     // tick mark color
     @IBInspectable var tickMarkColor: UIColor  = UIColor.blue
 
-    // tick mark color
+    // border thickness
+    @IBInspectable var borderThickness: CGFloat = 1.0 {
+        didSet {
+            checkboxLyr.lineWidth = borderThickness
+            checkboxLyr.displayIfNeeded()
+        }
+    }
+
+    // border color
     @IBInspectable var borderColor: UIColor  = UIColor.darkGray {
         didSet {
-            updateBorderColor()
+            checkboxLyr.strokeColor = self.borderColor.cgColor
+            checkboxLyr.displayIfNeeded()
         }
     }
 
@@ -46,25 +55,22 @@ class CheckBox: UIButton {
     }
     
     let checkboxLyr = CAShapeLayer()
-    fileprivate func updateBorderColor() {
-        let viewBounds: CGRect = self.bounds
-        checkboxFrame = CGRect(x: viewBounds.origin.x+animationOffset,
-                               y: viewBounds.origin.y+animationOffset,
-                               width: viewBounds.size.width-(animationOffset*2),
-                               height: viewBounds.size.height-(animationOffset*2))
-
-        let checkBoxPath = UIBezierPath(roundedRect: checkboxFrame,
-                                        cornerRadius: cornerRadius)
-
-        checkboxLyr.fillColor = UIColor.clear.cgColor
-        checkboxLyr.strokeColor = self.borderColor.cgColor
-        checkboxLyr.lineWidth = 2
-        checkboxLyr.path = checkBoxPath.cgPath
-    }
-
     override var frame: CGRect {
         didSet {
-            updateBorderColor()
+
+            let viewBounds: CGRect = self.bounds
+            checkboxFrame = CGRect(x: viewBounds.origin.x+animationOffset,
+                                   y: viewBounds.origin.y+animationOffset,
+                                   width: viewBounds.size.width-(animationOffset*2),
+                                   height: viewBounds.size.height-(animationOffset*2))
+
+            let checkBoxPath = UIBezierPath(roundedRect: checkboxFrame,
+                                            cornerRadius: cornerRadius)
+
+            checkboxLyr.fillColor = UIColor.clear.cgColor
+            checkboxLyr.strokeColor = self.borderColor.cgColor
+            checkboxLyr.lineWidth = borderThickness
+            checkboxLyr.path = checkBoxPath.cgPath
 
             // self.layer does not have any layers
             guard let sublayers = self.layer.sublayers else {
