@@ -17,11 +17,18 @@ class CheckBox: UIButton {
     let animationDuration: CFTimeInterval = 0.3
     
     // fill color
+    @IBInspectable var fillColor: UIColor  = UIColor.red
+
     // tick mark color
-    
-    // -- IBDesignable elements --
-    
-    
+    @IBInspectable var tickMarkColor: UIColor  = UIColor.blue
+
+    // tick mark color
+    @IBInspectable var borderColor: UIColor  = UIColor.darkGray {
+        didSet {
+            updateBorderColor()
+        }
+    }
+
     private var checkBoxLayer: CAShapeLayer!
     private var tickMarkLayer: CAShapeLayer!
 
@@ -38,25 +45,37 @@ class CheckBox: UIButton {
         }
     }
     
+    let checkboxLyr = CAShapeLayer()
+    fileprivate func updateBorderColor() {
+        let viewBounds: CGRect = self.bounds
+        checkboxFrame = CGRect(x: viewBounds.origin.x+animationOffset,
+                               y: viewBounds.origin.y+animationOffset,
+                               width: viewBounds.size.width-(animationOffset*2),
+                               height: viewBounds.size.height-(animationOffset*2))
+
+        let checkBoxPath = UIBezierPath(roundedRect: checkboxFrame,
+                                        cornerRadius: cornerRadius)
+
+        checkboxLyr.fillColor = UIColor.clear.cgColor
+        checkboxLyr.strokeColor = self.borderColor.cgColor
+        checkboxLyr.lineWidth = 2
+        checkboxLyr.path = checkBoxPath.cgPath
+    }
+
     override var frame: CGRect {
         didSet {
-            // TODO: Remove this redundant variable and use self.frame instead
-            let viewBounds: CGRect = self.bounds
-            checkboxFrame = CGRect(x: viewBounds.origin.x+animationOffset,
-                                   y: viewBounds.origin.y+animationOffset,
-                                   width: viewBounds.size.width-(animationOffset*2),
-                                   height: viewBounds.size.height-(animationOffset*2))
-            
-            let checkBoxPath = UIBezierPath(roundedRect: checkboxFrame,
-                                            cornerRadius: cornerRadius)
-            
-            let checkboxLyr = CAShapeLayer()
-            checkboxLyr.fillColor = UIColor.clear.cgColor
-            checkboxLyr.strokeColor = UIColor.darkGray.cgColor
-            checkboxLyr.lineWidth = 2
-            checkboxLyr.path = checkBoxPath.cgPath
-            
-            self.layer.addSublayer(checkboxLyr)
+            updateBorderColor()
+
+            // self.layer does not have any layers
+            guard let sublayers = self.layer.sublayers else {
+                self.layer.addSublayer(checkboxLyr)
+                return
+            }
+
+            // sublayers != nil then check if it contains checkboxLyr layer already
+            if !sublayers.contains(checkboxLyr) {
+                self.layer.addSublayer(checkboxLyr)
+            }
         }
     }
     
@@ -83,11 +102,7 @@ class CheckBox: UIButton {
         // Create layers if not available
         if(self.checkBoxLayer == nil) {
             checkBoxLayer = CAShapeLayer()
-            if let blueColor: UIColor = UIColor(named: "checkedColor") {
-                checkBoxLayer.fillColor = blueColor.cgColor
-            } else {
-                checkBoxLayer.fillColor = UIColor.blue.cgColor
-            }
+            checkBoxLayer.fillColor = self.fillColor.cgColor
             checkBoxLayer.path = checkBoxPathSmall.cgPath
             
             self.layer.addSublayer(checkBoxLayer)
@@ -111,7 +126,7 @@ class CheckBox: UIButton {
         
         self.tickMarkLayer = CAShapeLayer()
         tickMarkLayer.fillColor = UIColor.clear.cgColor
-        tickMarkLayer.strokeColor = UIColor.white.cgColor
+        tickMarkLayer.strokeColor = self.tickMarkColor.cgColor
         tickMarkLayer.lineWidth = 1.5
         self.tickMarkLayer.lineJoin = kCALineJoinRound
         tickMarkLayer.path = path.cgPath
@@ -186,13 +201,3 @@ class CheckBox: UIButton {
     
     
 }
-/*
- An UIButton object
- - frame to the button object
- 
- - @IBDesignable - properties - NOT NEEDED
-
-
-
-*/
-

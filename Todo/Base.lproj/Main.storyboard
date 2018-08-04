@@ -27,18 +27,29 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RKa-ai-nei">
-                                            <rect key="frame" x="68" y="16" width="291" height="21"/>
+                                            <rect key="frame" x="56" y="16" width="303" height="21"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.28627450980000002" green="0.32156862749999998" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u1k-7l-DnY" customClass="CheckBox" customModule="Todo" customModuleProvider="target">
-                                            <rect key="frame" x="16" y="5" width="44" height="44"/>
+                                            <rect key="frame" x="16" y="11" width="32" height="32"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="44" id="OTQ-2R-9lQ"/>
-                                                <constraint firstAttribute="width" constant="44" id="iPr-lv-bjO"/>
+                                                <constraint firstAttribute="height" constant="32" id="OTQ-2R-9lQ"/>
+                                                <constraint firstAttribute="width" constant="32" id="iPr-lv-bjO"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
+                                                    <color key="value" red="0.16923248175845051" green="1" blue="0.25771945162135923" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="tickMarkColor">
+                                                    <color key="value" red="1" green="0.12152288039477976" blue="0.23604888927374423" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                    <color key="value" red="0.14512986927647731" green="1" blue="0.96179597484926083" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="checkboxTapped:" destination="ozP-Re-G3j" eventType="touchUpInside" id="epv-d8-8i3"/>
                                             </connections>
