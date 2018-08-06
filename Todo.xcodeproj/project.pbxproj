@@ -14,6 +14,7 @@
 		957DF92020C4D26C0064704E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 957DF91E20C4D26C0064704E /* LaunchScreen.storyboard */; };
 		957DF92820C4D3800064704E /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957DF92720C4D3800064704E /* TaskCell.swift */; };
 		957DF92A20C4D3990064704E /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957DF92920C4D3990064704E /* TaskViewController.swift */; };
+		95DC7D6B2117E0B900D99B24 /* AnimationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DC7D6A2117E0B900D99B24 /* AnimationsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		957DF92720C4D3800064704E /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		957DF92920C4D3990064704E /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		95A81BEE20C4E1AA0090D691 /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
+		95DC7D6A2117E0B900D99B24 /* AnimationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationsViewController.swift; sourceTree = "<group>"; };
 		95ECB4342117DCAE00D558BE /* Animations.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Animations.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
@@ -64,6 +66,7 @@
 				957DF92920C4D3990064704E /* TaskViewController.swift */,
 				957DF92720C4D3800064704E /* TaskCell.swift */,
 				95A81BEE20C4E1AA0090D691 /* CheckBox.swift */,
+				95DC7D6A2117E0B900D99B24 /* AnimationsViewController.swift */,
 				957DF91920C4D2690064704E /* Main.storyboard */,
 				957DF91C20C4D26C0064704E /* Assets.xcassets */,
 				957DF91E20C4D26C0064704E /* LaunchScreen.storyboard */,
@@ -147,6 +150,7 @@
 				957DF92820C4D3800064704E /* TaskCell.swift in Sources */,
 				957DF91620C4D2690064704E /* AppDelegate.swift in Sources */,
 				957DF92A20C4D3990064704E /* TaskViewController.swift in Sources */,
+				95DC7D6B2117E0B900D99B24 /* AnimationsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
