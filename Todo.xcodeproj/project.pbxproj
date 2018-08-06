@@ -26,6 +26,7 @@
 		957DF92720C4D3800064704E /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		957DF92920C4D3990064704E /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		95A81BEE20C4E1AA0090D691 /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
+		95ECB4342117DCAE00D558BE /* Animations.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Animations.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +43,7 @@
 		957DF90920C4D2690064704E = {
 			isa = PBXGroup;
 			children = (
+				95ECB4342117DCAE00D558BE /* Animations.playground */,
 				957DF91420C4D2690064704E /* Todo */,
 				957DF91320C4D2690064704E /* Products */,
 			);
