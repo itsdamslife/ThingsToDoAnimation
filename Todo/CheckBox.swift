@@ -87,12 +87,10 @@ class CheckBox: UIButton {
     
     init(with frame: CGRect) {
         super.init(frame: frame)
-        self.imageView?.image = nil
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.imageView?.image = nil
         os_log("init(coder:) has not been implemented")
     }
     
