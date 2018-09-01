@@ -8,12 +8,16 @@
 
 import UIKit
 
+
 class AnimationsViewController: UIViewController {
 
     @IBOutlet weak var checkboxContainer: UIStackView!
     @IBOutlet weak var checkBox: CheckBox!
     @IBOutlet weak var checkBoxLabel: UILabel!
     @IBOutlet weak var cbContainerCenterConstraint: NSLayoutConstraint!
+
+
+    let funcDict : [String: String] = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,13 +30,29 @@ class AnimationsViewController: UIViewController {
         checkBox.alpha = 0.0
         checkBoxLabel.alpha = 0.0
         checkboxContainer.alpha = 0.0
+
+        let str = "criticalFunc:"
+        perform(Selector((str)), with: "⭕️")
+    }
+    
+    @objc func criticalFunc(_ object: String) {
+        print("Critical executed! \(object)")
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let str = "successFunc:"
+        perform(Selector((str)), with: "✅")
+    }
+
+    @objc func successFunc(_ object: String) {
+        print("Success executed! \(object)")
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
