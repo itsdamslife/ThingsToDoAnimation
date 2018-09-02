@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ToZ-y0-Pr1">
-                                <rect key="frame" x="129" y="328" width="117" height="32"/>
+                                <rect key="frame" x="129" y="153" width="117" height="32"/>
                                 <subviews>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uga-qu-MpP" customClass="CheckBox" customModule="Todo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
@@ -55,9 +55,8 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.3192602074" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dDh-LS-cjK" customClass="CheckBox" customModule="Todo" customModuleProvider="target">
-                                <rect key="frame" x="180" y="480" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dDh-LS-cjK" customClass="CheckBox" customModule="Todo" customModuleProvider="target">
+                                <rect key="frame" x="16" y="57" width="30" height="34"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
                                         <color key="value" red="0.047058823530000002" green="0.2470588235" blue="0.45882352939999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -79,13 +78,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="dDh-LS-cjK" firstAttribute="top" secondItem="a8u-2D-LV9" secondAttribute="top" constant="37" id="0Yq-QK-tTJ"/>
                             <constraint firstItem="ToZ-y0-Pr1" firstAttribute="centerX" secondItem="a8u-2D-LV9" secondAttribute="centerX" id="6VI-aY-lH8"/>
-                            <constraint firstItem="ToZ-y0-Pr1" firstAttribute="centerY" secondItem="a8u-2D-LV9" secondAttribute="centerY" id="ZzV-in-yCi"/>
+                            <constraint firstItem="dDh-LS-cjK" firstAttribute="leading" secondItem="a8u-2D-LV9" secondAttribute="leading" constant="16" id="GNk-hH-KRG"/>
+                            <constraint firstItem="ToZ-y0-Pr1" firstAttribute="top" secondItem="a8u-2D-LV9" secondAttribute="top" constant="133" id="jgB-xR-cKN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="a8u-2D-LV9"/>
                     </view>
                     <connections>
-                        <outlet property="cbContainerCenterConstraint" destination="ZzV-in-yCi" id="vfo-84-GUq"/>
                         <outlet property="checkBox" destination="uga-qu-MpP" id="D1p-Gb-QCA"/>
                         <outlet property="checkBoxLabel" destination="YVj-HE-fbM" id="ouZ-wK-Kl7"/>
                         <outlet property="checkboxContainer" destination="ToZ-y0-Pr1" id="8Jk-2O-utx"/>
