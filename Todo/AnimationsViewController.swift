@@ -72,7 +72,9 @@ class AnimationsViewController: UIViewController {
             UIView.animate(withDuration: 1.0, animations: { [unowned self] in
                 self.view.backgroundColor = .white
             }, completion: { [unowned self] _ in
-                UIView.animate(withDuration: 1.0, delay: 0.5, options: [.curveEaseOut], animations: { [unowned self] in
+                UIView.animate(withDuration: 1.0, delay: 0.5,
+                               usingSpringWithDamping: 0.3, initialSpringVelocity: 0.6,
+                               options: [.curveEaseOut], animations: { [unowned self] in
                     var frame = self.checkboxContainer.frame
                     frame.origin.y -= 50
                     self.checkboxContainer.frame = frame
