@@ -15,7 +15,7 @@ class AnimationsViewController: UIViewController {
     @IBOutlet weak var checkBox: CheckBox!
     @IBOutlet weak var checkBoxLabel: UILabel!
     @IBOutlet weak var cbContainerCenterConstraint: NSLayoutConstraint!
-
+    @IBOutlet weak var appleLogoView: UIImageView!
 
     let funcDict : [String: String] = [:]
 
@@ -30,23 +30,6 @@ class AnimationsViewController: UIViewController {
         checkBox.alpha = 0.0
         checkBoxLabel.alpha = 0.0
         checkboxContainer.alpha = 0.0
-
-        let str = "criticalFunc:"
-        perform(Selector((str)), with: "⭕️")
-    }
-    
-    @objc func criticalFunc(_ object: String) {
-        print("Critical executed! \(object)")
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        let str = "successFunc:"
-        perform(Selector((str)), with: "✅")
-    }
-
-    @objc func successFunc(_ object: String) {
-        print("Success executed! \(object)")
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,32 +39,61 @@ class AnimationsViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+//        chainAminations() // 1
 
+        keyFrameAnimation() // 2
+    }
+
+    func keyFrameAnimation() {
+
+        let numberOfKeyFrames: Double = 10
+        let durationOffset = 0.25
+        UIView.animateKeyframes(withDuration: durationOffset * numberOfKeyFrames, delay: 0.0, options: [.beginFromCurrentState], animations: { [weak self] in
+
+            for i in 0..<Int(numberOfKeyFrames) {
+                UIView.addKeyframe(withRelativeStartTime: (numberOfKeyFrames/100.0) * Double(i),
+                                        relativeDuration: numberOfKeyFrames/100.0) {
+                    self?.appleLogoView.center.x += CGFloat(50 - (i*5))
+                    self?.appleLogoView.center.y -= CGFloat(5 + (i*5))
+                    self?.appleLogoView.alpha = CGFloat(1.0 - (numberOfKeyFrames/100.0) * Double(i))
+
+                    let negPi = 3.14 / Double( 2 * i )
+                    self?.appleLogoView.transform = CGAffineTransform(rotationAngle: CGFloat(negPi))
+                }
+            }
+
+        }, completion: { [weak self] finished in
+            self?.appleLogoView.alpha = 1.0
+            self?.appleLogoView.transform = .identity
+        })
+    }
+
+
+    func chainAminations() {
         UIView.animate(withDuration: 1.0, animations: { [unowned self] in
             self.checkboxContainer.alpha = 1.0
         })
 
         UIView.animate(withDuration: 1.0, delay: 2.0, options: [.curveEaseOut], animations: { [unowned self] in
             self.checkBox.alpha = 1.0
-        }, completion: nil)
+            }, completion: nil)
 
         UIView.animate(withDuration: 1.0, delay: 3.0, options: [.curveEaseOut], animations: { [unowned self] in
             self.checkBoxLabel.alpha = 1.0
-        }, completion: { [unowned self] finished in
-            guard finished else { return }
-            UIView.animate(withDuration: 1.0, animations: { [unowned self] in
-                self.view.backgroundColor = .white
-            }, completion: { [unowned self] _ in
-                UIView.animate(withDuration: 1.0, delay: 0.5,
-                               usingSpringWithDamping: 0.3, initialSpringVelocity: 0.6,
-                               options: [.curveEaseOut], animations: { [unowned self] in
-                    var frame = self.checkboxContainer.frame
-                    frame.origin.y -= 50
-                    self.checkboxContainer.frame = frame
-                }, completion: nil)
-            })
+            }, completion: { [unowned self] finished in
+                guard finished else { return }
+                UIView.animate(withDuration: 1.0, animations: { [unowned self] in
+                    self.view.backgroundColor = .white
+                    }, completion: { [unowned self] _ in
+                        UIView.animate(withDuration: 1.0, delay: 0.5,
+                                       usingSpringWithDamping: 0.3, initialSpringVelocity: 0.6,
+                                       options: [.curveEaseOut], animations: { [unowned self] in
+                                        var frame = self.checkboxContainer.frame
+                                        frame.origin.y -= 50
+                                        self.checkboxContainer.frame = frame
+                            }, completion: nil)
+                })
         })
-
     }
 
     @IBAction func checkboxTapped(_ sender: Any) {
